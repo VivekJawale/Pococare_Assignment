@@ -11,8 +11,10 @@ const auth = require('./src/Middleware/auth.middleware')
 app.use(cors({ origin: "*" }));
 
 app.use(express.json())
-
-// user authentication 
+app.get('/', async (req, res) => {
+    res.sendFile(__dirname + '/src/utils/index.html');
+  })
+// user Autherization
 app.use('/user', userrouter)
 
 // Authentication 
